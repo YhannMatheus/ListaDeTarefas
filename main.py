@@ -23,6 +23,7 @@ def adicionar_tarefa():
     clear()
     tarefa = {"nome": "",
               "descricao": ""}
+    
     tarefa["nome"] = input("Nome da tarefa: ")
     tarefa["descricao"] = input("Descrição da tarefa: ")
     
@@ -32,28 +33,38 @@ def adicionar_tarefa():
 
 def listar_tarefas():
     clear()
+    
     print("Lista de tarefas:")
+    
     for i, tarefa in enumerate(lista_tarefas):
         print(f"{i+1} - {tarefa['nome']}\n {tarefa['descricao']}\n\n")
     input("Pressione Enter para continuar...")
 
 def remover_tarefa():
+    
     clear()
+    
     listar_tarefas()
+    
     indice = int(input("Digite o número da tarefa que deseja remover: ")) - 1
+    
     print(f"Você deseja remover a tarefa '{lista_tarefas[indice]['nome']}'?")
+    
     confirmacao = input("Digite 's' para confirmar ou 'n' para cancelar: ")
     if confirmacao != "s":
         print("Operação cancelada!")
         input("Pressione Enter para continuar...")
         return
+    
     lista_tarefas.pop(indice)
     print("Tarefa removida com sucesso!")
     input("Pressione Enter para continuar...")
 
 while True:
     clear()
+    
     print(menu)
+    
     opcao = input("Digite a opção desejada: ")
     if opcao == "1":
         adicionar_tarefa()
